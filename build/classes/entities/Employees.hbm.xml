@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated May 9, 2016 8:04:07 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="entities.Employees" table="employees" catalog="employees_directory" optimistic-lock="version">
+        <id name="id" type="java.lang.Integer">
+            <column name="ID" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="departments" class="entities.Departments" fetch="select">
+            <column name="DEPARTMENT" not-null="true" />
+        </many-to-one>
+        <property name="name" type="string">
+            <column name="NAME" length="99" not-null="true" />
+        </property>
+        <property name="jobTitle" type="string">
+            <column name="JOB_TITLE" length="45" not-null="true" />
+        </property>
+        <property name="email" type="string">
+            <column name="EMAIL" length="45" />
+        </property>
+        <property name="phone" type="string">
+            <column name="PHONE" length="45" />
+        </property>
+        <set name="departmentses" table="departments" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="MANAGER" />
+            </key>
+            <one-to-many class="entities.Departments" />
+        </set>
+    </class>
+</hibernate-mapping>
