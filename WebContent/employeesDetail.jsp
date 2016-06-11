@@ -11,6 +11,7 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/bootstrap-datepicker.css">
     <link rel="stylesheet" href="css/btn-file-input.css">
+    <link rel="stylesheet" href="css/bs3_sticky-footer.css">
     <title>Title</title>
 
 </head>
@@ -147,7 +148,7 @@
     <s:if test="isLogin()">
 	    <div class="row">
 	        <div class="col-md-6 col-md-offset-6">
-	            <button id='btnUpdate' class="btn btn-default">Update</button>
+	            <button id='btnUpdate' class="btn btn-default" disabled>Update</button>
 	            <button id='deleteEmp' class="btn btn-default">Delete Employee</button>
 	        </div>
 	
@@ -157,7 +158,15 @@
 
 
 </div>
+	<br>
+	<footer class="footer">
+        <div class="container_">
+            <div class="col-md-offset-1">
+                <p class="text-muted">Phát triển ứng dụng web</p>
+            </div>
 
+        </div>
+    </footer>
 	<script src="js/jquery-2.2.0.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/global_url.js"></script>

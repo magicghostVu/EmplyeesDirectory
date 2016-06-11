@@ -22,7 +22,6 @@ public class EmployeesByDpm extends ActionSupport {
 				EmpMin tmp=new EmpMin(all.get(i).getName(), all.get(i).getId());
 				empl.add(tmp);
 			}
-			
 		}
 		return SUCCESS;
 	}

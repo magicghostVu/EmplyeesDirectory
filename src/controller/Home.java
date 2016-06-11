@@ -30,9 +30,6 @@ public class Home extends ActionSupport{
 	public List<Departments> getAllDepartment() {
 		return allDepartment;
 	}
-	
-
-
 	public Admin getAdmin() {
 		return admin;
 	}

@@ -9,7 +9,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="css/bs3_sticky-footer.css">
     <link rel="stylesheet" href="css/btn-file-input.css">
     <title>Title</title>
 
@@ -58,11 +58,11 @@
             <s:if test="isLogin()">
             
             
-	            <span class="btn btn-primary btn-file">
+	            <%-- <span class="btn btn-primary btn-file">
 				    Browse... <input type="file" >
 				</span>
-				<button class="btn btn-default">Upload Image</button>
-				
+				<button class="btn btn-default">Upload Image</button> --%>
+				You can only change avatar after employee is created
 				
 			</s:if>
 			<br>
@@ -120,7 +120,15 @@
 
 
 </div>
+<footer class="footer">
+        <div class="container_">
+            <div class="col-md-offset-1">
+                <p class="text-muted">Phát triển ứng dụng web</p>
+            </div>
 
+        </div>
+    </footer>
+	
 <script src="js/jquery-2.2.0.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/global_url.js"></script>

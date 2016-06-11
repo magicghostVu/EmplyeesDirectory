@@ -23,7 +23,11 @@ public class DeleteSomeEmpJS extends ActionSupport {
 		}
 		for (int i = 0; i < listId.length; i++) {
 			Employees tmp=EmployeesModel.getEmployeeById(listId[i]);
-			EmployeesModel.deleteEmp(tmp);
+			
+			if(tmp!=null){
+				EmployeesModel.deleteEmp(tmp);
+			}
+			
 		}
 		result=true;
 		

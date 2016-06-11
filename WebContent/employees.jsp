@@ -9,6 +9,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link href="css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="css/bs3_sticky-footer.css">
 <title>Title</title>
 
 </head>
@@ -120,7 +121,15 @@
 
 
 	</div>
+	<br>
+	<footer class="footer">
+        <div class="container_">
+            <div class="col-md-offset-1">
+                <p class="text-muted">Phát triển ứng dụng web</p>
+            </div>
 
+        </div>
+    </footer>
 	<script src="js/jquery-2.2.0.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/global_url.js"></script>
@@ -189,6 +198,7 @@
 							tmp.parent().parent().remove();
 						}
 					}
+					console.log(data);
 					checkBox=$('.checkDelete');
 					
 					console.log(checkBox.size());
@@ -216,6 +226,9 @@
 			
 			if($('#name-emp').val()!=''){
 				url='queryEmp?'+p2+'&name='+$('#name-emp').val();
+				//console.log(url);
+			}else{
+				url='queryEmp?'+p2;
 			}
 			
 			console.log(url);
@@ -228,7 +241,7 @@
 				contentType: false
 				
 			}).done(function(data) {
-				console.log(data);
+				//console.log(data);
 				//console.log(data.result.length);
 				var arr=data.result;
 				var trArr=[];
