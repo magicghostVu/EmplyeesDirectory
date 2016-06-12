@@ -4,7 +4,6 @@ import java.io.File;
 import java.io.IOException;
 
 import org.apache.commons.io.FileUtils;
-
 import com.opensymphony.xwork2.ActionSupport;
 public class FileUpLoadEx extends ActionSupport{
 	File file;
@@ -16,17 +15,14 @@ public class FileUpLoadEx extends ActionSupport{
 				f.createNewFile();
 				//FileUtils.copyFile(file, f);
 			} catch (Exception e) {
-				
 				e.printStackTrace();
 			}
 		}
 		
 		if(file==null){
 			result=false;
-			
 			System.out.println("do file null");
 		}else {
-			
 			System.out.println(file);
 			result=true;
 			try {
@@ -35,9 +31,6 @@ public class FileUpLoadEx extends ActionSupport{
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			
-			
-			
 		}
 		return SUCCESS;
 	}

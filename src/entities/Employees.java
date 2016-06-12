@@ -1,5 +1,5 @@
 package entities;
-// Generated May 9, 2016 8:04:06 PM by Hibernate Tools 4.3.1
+// Generated Jun 12, 2016 10:51:47 PM by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -17,6 +17,7 @@ public class Employees  implements java.io.Serializable {
      private String jobTitle;
      private String email;
      private String phone;
+     private Boolean cusAva;
      private Set departmentses = new HashSet(0);
 
     public Employees() {
@@ -28,12 +29,13 @@ public class Employees  implements java.io.Serializable {
         this.name = name;
         this.jobTitle = jobTitle;
     }
-    public Employees(Departments departments, String name, String jobTitle, String email, String phone, Set departmentses) {
+    public Employees(Departments departments, String name, String jobTitle, String email, String phone, Boolean cusAva, Set departmentses) {
        this.departments = departments;
        this.name = name;
        this.jobTitle = jobTitle;
        this.email = email;
        this.phone = phone;
+       this.cusAva = cusAva;
        this.departmentses = departmentses;
     }
    
@@ -78,6 +80,13 @@ public class Employees  implements java.io.Serializable {
     
     public void setPhone(String phone) {
         this.phone = phone;
+    }
+    public Boolean getCusAva() {
+        return this.cusAva;
+    }
+    
+    public void setCusAva(Boolean cusAva) {
+        this.cusAva = cusAva;
     }
     public Set getDepartmentses() {
         return this.departmentses;

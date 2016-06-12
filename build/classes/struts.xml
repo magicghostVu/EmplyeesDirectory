@@ -87,6 +87,8 @@
        <action name="deleteSomeEmp" class='controller.DeleteSomeEmpJS' >
            <result name="success" type="json"></result>
        </action>
-       
+       <action name="upImg" class='controller.UpImgEmpJS'>
+           <result name="success" type="json"></result>
+       </action>
     </package>
 </struts>

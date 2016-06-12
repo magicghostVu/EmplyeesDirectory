@@ -12,11 +12,17 @@
     <link rel="stylesheet" href="css/bs3_sticky-footer.css">
     <link rel="stylesheet" href="css/btn-file-input.css">
     <title>Title</title>
-
+	<link rel="stylesheet" href="css/font-face.css">
+	<style>
+		body{
+			font-family: miui;
+		}
+	
+	</style>
 </head>
 <body>
 <div class="container">
-    <nav class="navbar navbar-inverse">
+    <nav class="navbar navbar-default">
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle" data-toggle="collapse"
 					data-target="#menu">

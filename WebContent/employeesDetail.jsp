@@ -13,11 +13,17 @@
     <link rel="stylesheet" href="css/btn-file-input.css">
     <link rel="stylesheet" href="css/bs3_sticky-footer.css">
     <title>Title</title>
-
+	<link rel="stylesheet" href="css/font-face.css">
+	<style>
+		body{
+			font-family: miui;
+		}
+	
+	</style>
 </head>
 <body>
 <div class="container">
-    <nav class="navbar navbar-inverse">
+    <nav class="navbar navbar-default">
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle" data-toggle="collapse"
 					data-target="#menu">
@@ -52,20 +58,28 @@
 
 
     <h2>Employee Detail</h2>
+    <br>
     <div class="row">
         <div class="col-md-offset-2 col-md-4">
-            <img class="img-responsive" src="img/img.png" alt="" style="width: 180px; height: 180px"> <br>
+        
+        	<s:if test="hasCusAva()">
+        		<img id="avatar" class="img-responsive" src="img/<s:property value="e.id" />.jpg" alt="" style="width: 180px; height: 180px"> <br>
+        	</s:if>
+        	<s:else>
+        		<img id="avatar" class="img-responsive" src="img/img.png" alt="" style="width: 180px; height: 180px"> <br>
+        	</s:else>
+            <!-- <img class="img-responsive" src="img/img.png" alt="" style="width: 180px; height: 180px"> <br> -->
             
             
             
             <s:if test="isLogin()">
             
-            
-	            <span class="btn btn-primary btn-file">
-				    Browse... <input type="file" >
-				</span>
-				<button class="btn btn-default">Upload Image</button>
-				
+            	<form onsubmit='return false;' enctype="multipart/form-data" method="post" id='upImg'>
+		            <span class="btn btn-primary btn-file">
+					    Browse... <input type="file" name='file' accept=".jpg" id="fileImg">
+					</span>
+					<button class="btn btn-default" disabled id='up-img' >Upload Image</button>
+				</form>
 				
 			</s:if>
 			
@@ -213,6 +227,22 @@
 				}
 			});
 			
+			
+			
+			$('#department_id').change(function() {
+				$('#btnUpdate').attr('disabled', false);
+			});
+			$('#jobTitle').change(function() {
+				$('#btnUpdate').attr('disabled', false);
+			});
+			$('#phone').change(function() {
+				$('#btnUpdate').attr('disabled', false);
+			});
+			$('#email').change(function() {
+				$('#btnUpdate').attr('disabled', false);
+			});
+			
+			
 			updateBtn.click(function(){
 				var url=G_URL+'/updateEmp?';
 				var name=$('#ename').val();
@@ -260,8 +290,29 @@
 				}
 			});
 			
-			
-			
+		$('#fileImg').change(function() {
+			$('#up-img').attr('disabled', false);
+		});	
+		$('#up-img').click(function() {
+			var id= getUrlParameter('id');
+			var fd= new FormData(document.getElementById('upImg'));
+			fd.append('id', id);
+			$.ajax({
+				url: 'upImg',
+				type: "post",
+				data: fd,
+				processData : false,
+				contentType : false
+			}).done(function(data) {
+				console.log(data);
+				var d=new Date();
+				var imgSrc='img/'+id+'.jpg?d='+d.getTime();
+				$('#avatar').attr('src',imgSrc ); 
+				
+				console.log(imgSrc);
+				$('#up-img').attr('disabled', true);
+			});
+		});
 		</script>
 					
 						

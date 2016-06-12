@@ -9,36 +9,47 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<!-- <form action="upFile" method="get" enctype="multipart/form-data">
-		<input type="file" id='idFile'/>
-		<input type='submit' value="Upload">
-	</form> -->
+	
+	<form id="upFile" enctype="multipart/form-data" method="post" onsubmit='return upFile();'>
+		<input type="file" name='file'>
+		<input type="submit" value='Up'>
+	</form>
 	
 	
-	<s:form action="upFile" method="POST" enctype="multipart/form-data" >
-		<s:file name="file" label="Select a File to upload" size="40" />
-		
-		<s:submit value="submit"/>
-	
-	</s:form>
-	
-	<button id='test'>Click here</button>
+	<!-- //<button id='test'>Click here</button> -->
 	
 	
 	<script src="js/jquery-2.2.0.min.js"></script>
 	<script src="js/global_url.js"></script>
 	<script>
-		$('#upFile_file').change(function() {
-			console.log($(this).val());
-		});
-		
-		$('#test').click(function() {
-			var url=G_URL+'/upFile?file='+$('#upFile_file').val();
-			$.post(url, function(data) {
-				alert(data.result);
+		/* $('#test').click(function() {
+			var fd= new FormData(document.getElementById('upFile'));
+			$.ajax({
+				url: 'upFile',
+				data: fd,
+				type: 'POST',
+				processData : false,
+				contentType : false
+			}).done(function(data) {
+				console.log(data);
 			});
-		});
-		
+			
+		}); */
+		function upFile() {
+			var fd=new FormData(document.getElementById('upFile'));
+			fd.append('id','1');
+			$.ajax({
+				url: 'upImg',
+				type: 'POST',
+				data: fd,
+				processData : false,
+				contentType : false
+			}).done(function(data) {
+				console.log(data);
+				//console.log($(fd).serialize());
+			});
+			return false;
+		}
 	
 	
 	</script>

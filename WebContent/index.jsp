@@ -6,16 +6,22 @@
 <head>
 <meta charset="UTF-8">
 <meta charset="utf-8">
+<title>Home</title>
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link href="css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="css/bs3_sticky-footer.css">
-<title>Home</title>
+<link rel="stylesheet" href="css/font-face.css">
+<style>
+body{
+	font-family: miui;
+}
 
+</style>
 </head>
 <body>
 	<div class="container">
-		<nav class="navbar navbar-inverse">
+		<nav class="navbar navbar-default">
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle" data-toggle="collapse"
 					data-target="#menu">
@@ -37,7 +43,7 @@
 		                    </ul>
                 		</li>
 					</s:if>
-					<li><a href="home">Department</a></li>
+					<li class='active'><a href="home">Department</a></li>
 					<li><a href="employees">Employees</a></li>
 					<li><a href="login">Log in</a></li>
 				</ul>
@@ -105,6 +111,7 @@
 		</s:if>
 
 	</div>
+	<br>
 	<footer class="footer">
         <div class="container_">
             <div class="col-md-offset-1">

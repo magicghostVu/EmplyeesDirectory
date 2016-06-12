@@ -8,7 +8,6 @@
     <property name="hibernate.connection.username">root</property>
     <property name="hibernate.connection.password">1234</property>
     <property name="hibernate.current_session_context_class">thread</property>
-    <!-- <property name="hibernate.show_sql">true</property> -->
     <mapping resource="entities/Employees.hbm.xml"/>
     <mapping resource="entities/Departments.hbm.xml"/>
     <mapping resource="entities/Admin.hbm.xml"/>

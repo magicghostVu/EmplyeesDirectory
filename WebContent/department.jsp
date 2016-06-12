@@ -4,16 +4,23 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-    <meta charset="utf-8">
+    
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="css/bootstrap.min.css" rel="stylesheet">
    	<link rel="stylesheet" href="css/bs3_sticky-footer.css">
     <title>Title</title>
+    <link rel="stylesheet" href="css/font-face.css">
+	<style>
+		body{
+			font-family: miui;
+		}
+	
+	</style>
 </head>
 <body>
 	<div class="container">
-        <nav class="navbar navbar-inverse">
+        <nav class="navbar navbar-default">
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle" data-toggle="collapse"
 					data-target="#menu">
@@ -104,6 +111,7 @@
 		</s:if>
 
     </div>
+    <br>
 	<footer class="footer">
         <div class="container_">
             <div class="col-md-offset-1">

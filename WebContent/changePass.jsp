@@ -5,10 +5,16 @@
 
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    
     <title>Change Password</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    
+    <link rel="stylesheet" href="css/font-face.css">
+	<style>
+		body{
+			font-family: miui;
+		}
+	
+	</style>
 </head>
 <body>
     <div class="container">

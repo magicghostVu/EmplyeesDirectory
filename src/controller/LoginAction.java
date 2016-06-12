@@ -14,25 +14,21 @@ public class LoginAction extends ActionSupport{
 	String userName, passWord;
 	boolean result;
 	public String execute(){
-		
+		System.out.println("đã chạy qua đây");
 		List<Admin> all=AdminModel.getAllAdmin();
 		if(AdminModel.containAdmin(all, userName, passWord)){
 			Map<String , Object> session=SessionUlti.getSession();
-			session.put("login", userName);// giá trị userName là giá trị của session
+			session.put("login", userName);
+			
+			
 			result=true;
 		}else {
 			result=false;
 		}
 		return SUCCESS;
 	}
-	public String getUserName() {
-		return userName;
-	}
 	public void setUserName(String userName) {
 		this.userName = userName;
-	}
-	public String getPassWord() {
-		return passWord;
 	}
 	public void setPassWord(String passWord) {
 		this.passWord = passWord;
@@ -40,9 +36,7 @@ public class LoginAction extends ActionSupport{
 	public boolean isResult() {
 		return result;
 	}
-	public void setResult(boolean result) {
-		this.result = result;
-	}
+	
 	
 	
 }

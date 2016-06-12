@@ -12,11 +12,17 @@
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
-    
+    <link rel="stylesheet" href="css/font-face.css">
+	<style>
+		body{
+			font-family: miui;
+		}
+	
+	</style>
 
 </head>
 <body>
-<!-- <h1>Hello, world!</h1> -->
+
 <div class="container">
 
 
@@ -37,9 +43,11 @@
 
                 </div>
 
-
+				<br>
                 <button id='btn-login' class="btn btn-success form-control" >Login</button>
-
+                <br>
+                <br>
+				<p id='message'></p>
 
             <!-- </form> -->
 
@@ -87,15 +95,12 @@
 			var p2='passWord='+passWord;
 			var action='/loginAction';
 			var url=G_URL+action+'?'+p1+'&'+p2;
-			
-			//alert(url);
-			
 			$.getJSON(url, function(data){
 				if(data.result==true){
-					alert("Login succsess");
+					//alert("Login succsess");
 					window.location.replace(G_URL);
 				}else{
-					alert('Username or password is incorrect, try again');
+					$('#message').html('Incorect username or password');
 				}
 			});
 		}

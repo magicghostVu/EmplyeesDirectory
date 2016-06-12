@@ -10,12 +10,18 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link href="css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="css/bs3_sticky-footer.css">
-<title>Title</title>
+<title>All Employees</title>
+<link rel="stylesheet" href="css/font-face.css">
+<style>
+	body{
+		font-family: miui;
+	}
 
+</style>
 </head>
 <body>
 	<div class="container">
-		<nav class="navbar navbar-inverse">
+		<nav class="navbar navbar-default">
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle" data-toggle="collapse"
 					data-target="#menu">
@@ -170,7 +176,47 @@
 
 			$("#deleteEmp").click(function() {
 				
-				checkBox = $('.checkDelete');
+				var sure= confirm("Delete all employees selected ?")
+				
+				if(sure==true){
+					checkBox = $('.checkDelete');
+					var listToDelete=[];
+					for (var i = 0; i < checkBox.size(); ++i) {
+						var tmp = $(checkBox[i]);
+						if (tmp.is(':checked')) {
+							listToDelete.push(tmp.attr('idemp'));
+							//console.log(tmp.attr('idemp'));
+							
+						}
+					}
+					var strQuery=listToDelete.join();
+					console.log(strQuery);
+					var formdata=new FormData();
+					formdata.append('lst', strQuery);
+					$.ajax({
+						url:'deleteSomeEmp',
+						type: 'POST',
+						data: formdata,
+						processData : false,
+						contentType: false
+					}).done(function(data) {
+						for (var i = 0; i < checkBox.size(); ++i) {
+							var tmp = $(checkBox[i]);
+							if (tmp.is(':checked')) {
+								tmp.parent().parent().remove();
+							}
+						}
+						console.log(data);
+						checkBox=$('.checkDelete');
+						
+						console.log(checkBox.size());
+						$('#deleteEmp').prop("disabled", true);
+					});
+					
+				}
+				
+				
+				/* checkBox = $('.checkDelete');
 				var listToDelete=[];
 				for (var i = 0; i < checkBox.size(); ++i) {
 					var tmp = $(checkBox[i]);
@@ -203,7 +249,7 @@
 					
 					console.log(checkBox.size());
 					$('#deleteEmp').prop("disabled", true);
-				});
+				}); */
 				
 				
 			});
@@ -213,13 +259,7 @@
 	<script>
 		$('#btn-search').click(function() {
 			$('#table-body').html('');
-			/* var formData=new FormData();
-			formData.append('name', $('#name-emp').val());
-			formData.append('idDpm', $('#department_id').val());
-			console.log($(formData).serialize()); */
-			
 			$('#deleteEmp').prop("disabled", true);
-			
 			var p2, url;
 			
 			p2='idDpm='+$('#department_id').val();
@@ -289,7 +329,7 @@
 				
 				for(var i=0;i<trArr.length;++i){
 					$('#table-body').append(trArr[i]);
-					checkBox = $('.checkDelete');
+					/* checkBox = $('.checkDelete');
 					checkBox.change(function() {
 						checkBox = $('.checkDelete');
 						var n = 0;
@@ -306,8 +346,26 @@
 						} else {
 							$('#deleteEmp').prop("disabled", true);
 						}
-					});
+					}); */
 				}
+				checkBox = $('.checkDelete');
+				checkBox.change(function() {
+					checkBox = $('.checkDelete');
+					var n = 0;
+					for (var i = 0; i < checkBox.size(); ++i) {
+						var tmp = $(checkBox[i]);
+						if (tmp.is(':checked')) {
+							n++;
+						}
+					}
+					console.log(n);
+					if (n > 0) {
+						$('#deleteEmp').prop("disabled", false);
+						console.log('okok');
+					} else {
+						$('#deleteEmp').prop("disabled", true);
+					}
+				});
 				
 			});
 			

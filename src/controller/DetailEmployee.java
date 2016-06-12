@@ -76,5 +76,10 @@ public class DetailEmployee extends ActionSupport {
 		return allD;
 	}
 	
+	public boolean hasCusAva(){
+		return e.getCusAva();
+	}
+	
+	
 	
 }
