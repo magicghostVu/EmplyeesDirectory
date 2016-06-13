@@ -84,12 +84,9 @@
 	<script src="js/bootstrap.min.js"></script>
 	<script src='js/global_url.js'></script>
 	<script type="text/javascript">
-	
 		function login(){
 			var userName=$('#username').val();
 			var passWord=$('#password').val();
-			
-			
 			//alert(userName+" "+passWord+" "+G_URL);
 			var p1='userName='+userName;
 			var p2='passWord='+passWord;

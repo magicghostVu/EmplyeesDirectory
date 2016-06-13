@@ -317,6 +317,11 @@
 				$('#up-img').attr('disabled', true);
 			});
 		});
+		
+		
+		$('#fileImg').change(function() {
+			console.log("ọinnd");
+		});
 		</script>
 					
 						
