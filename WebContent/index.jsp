@@ -30,7 +30,7 @@ body{
 						class="icon-bar"></span>
 
 				</button>
-				<a class="navbar-brand" href="">Employees Directory</a>
+				<a class="navbar-brand" href="home">Employees Directory</a>
 			</div>
 			<div class="navbar-collapse collapse" id="menu">
 				<ul class="navbar-right nav navbar-nav">

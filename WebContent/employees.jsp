@@ -82,6 +82,8 @@
 			</div>
 		</div>
 		<h3>Employees</h3>
+		
+		<div class='table-responsive'>
 		<table class="table table-hover table-striped" >
 			<thead>
 				<tr>
@@ -114,6 +116,8 @@
 			</tbody>
 
 		</table>
+		
+		</div>
 
 		<s:if test='isLogin()'>
 			<a href="addEmp" class="btn btn-default">Add Employees</a>
@@ -371,7 +375,10 @@
 			
 			
 		});
-	
+		$('#btn-clear').click(function() {
+			$('#name-emp').val('');
+			$('#department_id').val('0');
+		});
 	</script>
 
 </body>

@@ -11,7 +11,7 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/bs3_sticky-footer.css">
     <link rel="stylesheet" href="css/btn-file-input.css">
-    <title>Title</title>
+    <title>Add Emp</title>
 	<link rel="stylesheet" href="css/font-face.css">
 	<style>
 		body{
@@ -31,7 +31,7 @@
 						class="icon-bar"></span>
 
 				</button>
-				<a class="navbar-brand" href="">Employees Directory</a>
+				<a class="navbar-brand" href="home">Employees Directory</a>
 			</div>
 			<div class="navbar-collapse collapse" id="menu">
 				<ul class="navbar-right nav navbar-nav">
@@ -186,7 +186,11 @@
 				
 				var url=G_URL+'/addEmpJS?'+p1+'&'+p2+'&'+p3+'&'+p4+'&'+p5;
 				$.getJSON(url, function(data){
-					alert(data.result);
+					if(data.result==true){
+						alert("Add emp successfully");
+					}else{
+						alert("Add emp failed, try login again");
+					}
 				});
 			});
 			

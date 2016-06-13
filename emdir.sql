@@ -55,7 +55,7 @@ CREATE TABLE `departments` (
   PRIMARY KEY (`ID`),
   KEY `man_fk_idx` (`MANAGER`),
   CONSTRAINT `fk_manager` FOREIGN KEY (`MANAGER`) REFERENCES `employees` (`ID`) ON DELETE SET NULL ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -64,7 +64,7 @@ CREATE TABLE `departments` (
 
 LOCK TABLES `departments` WRITE;
 /*!40000 ALTER TABLE `departments` DISABLE KEYS */;
-INSERT INTO `departments` VALUES (1,'Hành Chính',1,'01689357007'),(2,'Nhân lực',1,'01699391693'),(3,'Đầu tư',8,'01645935574'),(4,'Y tế',4,'01652519254'),(5,'Điều hành',6,'01689874564'),(6,'New Depart',1,'0122333555');
+INSERT INTO `departments` VALUES (1,'Hành Chính',1,'01689357007'),(2,'Nhân lực',1,'01699391693'),(3,'Đầu tư',8,'01645935574'),(4,'Y tế',4,'01652519254'),(5,'Điều hành',8,'01689874564'),(6,'New Depart',1,'0122333556'),(8,'Phòng nào đấy 1',3,'1928477980');
 /*!40000 ALTER TABLE `departments` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -82,10 +82,11 @@ CREATE TABLE `employees` (
   `EMAIL` varchar(45) DEFAULT NULL,
   `DEPARTMENT` int(11) NOT NULL,
   `PHONE` varchar(45) DEFAULT NULL,
+  `CUS_AVA` bit(1) DEFAULT b'0',
   PRIMARY KEY (`ID`),
   KEY `depart_idx` (`DEPARTMENT`),
   CONSTRAINT `fk_dpm` FOREIGN KEY (`DEPARTMENT`) REFERENCES `departments` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=63 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -94,7 +95,7 @@ CREATE TABLE `employees` (
 
 LOCK TABLES `employees` WRITE;
 /*!40000 ALTER TABLE `employees` DISABLE KEYS */;
-INSERT INTO `employees` VALUES (1,'Red Apple','Kỹ sư','magicghost.vu@gmail.com',5,'01689357005'),(2,'Ngọc Trương','Giám đốc','ngoc@gmail.com',2,'08989895657'),(3,'Trần Long','Nhân viên','Longtm0605@gmail.com',5,'099999999'),(4,'Hưng Nguyễn','Nhân viên','hungnv950@gmail.com',3,'0169476345922'),(6,'Khắc Thành','Nhân viên','thanh@gmail.com',2,'0188948594856'),(8,'Thắng Lưu','Nhân viên','thang@gmail.com',1,'57695865097650');
+INSERT INTO `employees` VALUES (1,'Red Apple','Kỹ sư','magicghost.vu@gmail.com',5,'01689357005',''),(2,'Ngọc Trương','Giám đốc','ngoc@gmail.com',2,'08989895657',''),(3,'Trần Long','Nhân viên','longtm0605@gmail.com',5,'099999999',''),(4,'Hưng Nguyễn','Nhân viên','hungnv950@gmail.com',3,'0169476345922',''),(6,'Khắc Thành','Nhân viên','thanh@gmail.com',2,'0188948594856',''),(8,'Lưu Thắng','Nhân viên','thang@gmail.com',1,'5769586509764',''),(21,'Quỳnh Trang','Chairman','phamthiquynhtrang95@gmail.com',5,'01699391693','');
 /*!40000 ALTER TABLE `employees` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -107,4 +108,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-06-03 20:17:10
+-- Dump completed on 2016-06-13 13:09:06

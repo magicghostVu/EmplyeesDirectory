@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="css/bootstrap-datepicker.css">
     <link rel="stylesheet" href="css/btn-file-input.css">
     <link rel="stylesheet" href="css/bs3_sticky-footer.css">
-    <title>Title</title>
+    <title>Emp Detail</title>
 	<link rel="stylesheet" href="css/font-face.css">
 	<style>
 		body{
@@ -32,7 +32,7 @@
 						class="icon-bar"></span>
 
 				</button>
-				<a class="navbar-brand" href="">Employees Directory</a>
+				<a class="navbar-brand" href="home">Employees Directory</a>
 			</div>
 			<div class="navbar-collapse collapse" id="menu">
 				<ul class="navbar-right nav navbar-nav">
@@ -63,10 +63,10 @@
         <div class="col-md-offset-2 col-md-4">
         
         	<s:if test="hasCusAva()">
-        		<img id="avatar" class="img-responsive" src="img/<s:property value="e.id" />.jpg" alt="" style="width: 180px; height: 180px"> <br>
+        		<img id="avatar" class="img-responsive" src="img/<s:property value="e.id" />.jpg" alt="" style="width: 200px; height: 200px"> <br>
         	</s:if>
         	<s:else>
-        		<img id="avatar" class="img-responsive" src="img/img.png" alt="" style="width: 180px; height: 180px"> <br>
+        		<img id="avatar" class="img-responsive" src="img/img.png" alt="" style="width: 200px; height: 200px"> <br>
         	</s:else>
             <!-- <img class="img-responsive" src="img/img.png" alt="" style="width: 180px; height: 180px"> <br> -->
             
@@ -273,7 +273,11 @@
 				//alert(url+p1+"&"+p2+"&"+p3+"&"+p4+"&"+p5);
 				url=url+p1+"&"+p2+"&"+p3+"&"+p4+"&"+p5+'&'+p0;
 				$.get(url, function(data){
-					alert(data.result);
+					if(data.result==true){
+						alert('Updated');
+					}else{
+						alert('Update failed, try login again');
+					}
 				});
 				//alert(url);
 			});

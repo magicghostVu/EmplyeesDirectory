@@ -37,8 +37,8 @@ public class UpImgEmpJS extends ActionSupport{
 		/*System.out.println(id);
 		System.out.println(file.getPath());*/
 		
-		File dtsFol= new File(dts);
-		File tmpdtsFol=new File(tmpDts);
+		/*File dtsFol= new File(dts);
+		File tmpdtsFol=new File(tmpDts);*/
 		
 		if(e.getCusAva()==false){
 			e.setCusAva(true);

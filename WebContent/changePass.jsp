@@ -88,9 +88,17 @@
 				processData : false,
 				contentType: false
 			}).done(function(data) {
-				alert(data.result);
+				
+				
+				if(data.result==true){
+					alert('Change password successed, login again');
+					window.location.href='login';
+				}else{
+					alert('Old pass is incorrect, try again');
+				}
+				/* alert(data.result);
 				alert("Login Again");
-				window.location.href='login';
+				window.location.href='login'; */
 			}); 
 			
 		});

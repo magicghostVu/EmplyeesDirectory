@@ -21,9 +21,9 @@ public class AddEmpJS extends ActionSupport {
 			e.setJobTitle(jobTitle);
 			e.setPhone(phone);
 			System.out.println(phone);
+			e.setCusAva(false);
 			EmployeesModel.saveOrUpdateEmployees(e);
 			result=true;
-			
 		} else {
 			result=false;
 		}

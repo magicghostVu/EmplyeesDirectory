@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="css/bootstrap.min.css" rel="stylesheet">
    	<link rel="stylesheet" href="css/bs3_sticky-footer.css">
-    <title>Title</title>
+    <title>Department</title>
     <link rel="stylesheet" href="css/font-face.css">
 	<style>
 		body{
@@ -233,7 +233,11 @@
 				
 				url=url+p1+"&"+p2+'&'+p3+"&"+p4;
 				$.getJSON(url, function(data) {
-					alert(data.result);
+					if(data.result==true){
+						alert('Update successfully');
+					}else{
+						alert('Update failed, try login again');
+					}
 				})
 				
 			});

@@ -13,13 +13,10 @@ public class ChangePassJS extends ActionSupport{
 		if(SessionUlti.isLogedIn()){
 			String tmpId=(String)SessionUlti.getSession().get("login");
 		 	Admin	admin=AdminModel.getAdminById(tmpId);
-		 	
-		 	
-		 	
-		 	
 		 	if(oldPass.equals(admin.getPass())){
 		 		admin.setPass(newPass);
 		 		AdminModel.SaveOrUpdateAdm(admin);
+		 		SessionUlti.getSession().remove("login");
 		 		result=true;
 		 	}else {
 				result=false;
