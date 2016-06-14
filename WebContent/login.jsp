@@ -93,11 +93,14 @@
 			var action='/loginAction';
 			var url=G_URL+action+'?'+p1+'&'+p2;
 			$.getJSON(url, function(data){
-				if(data.result==true){
+				if(data.result==0){
 					//alert("Login succsess");
 					window.location.replace(G_URL);
-				}else{
+				}else if(data.result==1){
 					$('#message').html('Incorect username or password');
+				}else{
+					alert('This is first time you login, you need change password before continue');
+					window.location.replace('changePassFirst');
 				}
 			});
 		}

@@ -90,5 +90,19 @@
        <action name="upImg" class='controller.UpImgEmpJS'>
            <result name="success" type="json"></result>
        </action>
+       <action name='addUser' class="controller.AddUser">
+           <result name="success">addUser.jsp</result>
+           <result name="error">404.jsp</result>
+       </action>
+       <action name='addUserJS' class='controller.AddUserJS'>
+           <result name='success' type="json"></result>
+       </action>
+       <action name="changePassFirst" class='controller.ChangePassFirst'>
+           <result name='success'>changePassFirst.jsp</result>
+           <result name="error">404.jsp</result>
+       </action>
+       <action name="changePassFirstJS" class='controller.ChangePassFirstJS'>
+           <result name="success" type="json"></result>
+       </action>
     </package>
 </struts>

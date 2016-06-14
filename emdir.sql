@@ -26,6 +26,7 @@ CREATE TABLE `admin` (
   `USER_NAME` varchar(45) NOT NULL,
   `PASS` varchar(45) NOT NULL,
   `EMAIL` varchar(45) NOT NULL,
+  `CHANGED_PASS` bit(1) DEFAULT b'0',
   PRIMARY KEY (`USER_NAME`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -36,7 +37,7 @@ CREATE TABLE `admin` (
 
 LOCK TABLES `admin` WRITE;
 /*!40000 ALTER TABLE `admin` DISABLE KEYS */;
-INSERT INTO `admin` VALUES ('magicghost.vu','1111','magicghost.vu@gmail.com'),('mrmagic','1234','magic200395');
+INSERT INTO `admin` VALUES ('magicghost.vu','1111','magicghost.vu@gmail.com',''),('mrmagic','1234','magic200395',''),('mrmagic_vu','1111','magicghost_vu@yahoo.com.vn',''),('qq','231432','aa',''),('quynhtrang','1111','phamthiquynhtrang95@gmail.com','');
 /*!40000 ALTER TABLE `admin` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -55,7 +56,7 @@ CREATE TABLE `departments` (
   PRIMARY KEY (`ID`),
   KEY `man_fk_idx` (`MANAGER`),
   CONSTRAINT `fk_manager` FOREIGN KEY (`MANAGER`) REFERENCES `employees` (`ID`) ON DELETE SET NULL ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -64,7 +65,7 @@ CREATE TABLE `departments` (
 
 LOCK TABLES `departments` WRITE;
 /*!40000 ALTER TABLE `departments` DISABLE KEYS */;
-INSERT INTO `departments` VALUES (1,'Hành Chính',1,'01689357007'),(2,'Nhân lực',1,'01699391693'),(3,'Đầu tư',8,'01645935574'),(4,'Y tế',4,'01652519254'),(5,'Điều hành',8,'01689874564'),(6,'New Depart',1,'0122333556'),(8,'Phòng nào đấy 1',3,'1928477980');
+INSERT INTO `departments` VALUES (1,'Hành Chính',3,'01689357007'),(2,'Nhân lực',6,'01699391693'),(3,'Đầu tư',4,'01645935574'),(4,'Y tế',34,'01652519254'),(5,'Điều hành',35,'01689874564'),(6,'New Depart',21,'0122333556'),(8,'AnyName',2,'1928477980');
 /*!40000 ALTER TABLE `departments` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -86,7 +87,7 @@ CREATE TABLE `employees` (
   PRIMARY KEY (`ID`),
   KEY `depart_idx` (`DEPARTMENT`),
   CONSTRAINT `fk_dpm` FOREIGN KEY (`DEPARTMENT`) REFERENCES `departments` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=36 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -95,7 +96,7 @@ CREATE TABLE `employees` (
 
 LOCK TABLES `employees` WRITE;
 /*!40000 ALTER TABLE `employees` DISABLE KEYS */;
-INSERT INTO `employees` VALUES (1,'Red Apple','Kỹ sư','magicghost.vu@gmail.com',5,'01689357005',''),(2,'Ngọc Trương','Giám đốc','ngoc@gmail.com',2,'08989895657',''),(3,'Trần Long','Nhân viên','longtm0605@gmail.com',5,'099999999',''),(4,'Hưng Nguyễn','Nhân viên','hungnv950@gmail.com',3,'0169476345922',''),(6,'Khắc Thành','Nhân viên','thanh@gmail.com',2,'0188948594856',''),(8,'Lưu Thắng','Nhân viên','thang@gmail.com',1,'5769586509764',''),(21,'Quỳnh Trang','Chairman','phamthiquynhtrang95@gmail.com',5,'01699391693','');
+INSERT INTO `employees` VALUES (1,'Red Apple','Kỹ sư','magicghost.vu@gmail.com',5,'01689357005',''),(2,'Ngọc Trương','Giám đốc','ngoc@gmail.com',8,'08989895657',''),(3,'Trần Long','Nhân viên','longtm0605@gmail.com',1,'099999999',''),(4,'Hưng Nguyễn','Nhân viên','hungnv950@gmail.com',3,'0169476345922',''),(6,'Khắc Thành','Nhân viên','thanh@gmail.com',2,'0188948594856',''),(8,'Lưu Thắng','Nhân viên','thang@gmail.com',1,'5769586509764',''),(21,'Quỳnh Trang','Chairman','phamthiquynhtrang95@gmail.com',6,'01699391693',''),(34,'Đức','Nhân viên','mail@mail.com',4,'817384298',''),(35,'NewEmp','tt','mail@mail.com',5,'0198423856768','');
 /*!40000 ALTER TABLE `employees` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -108,4 +109,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-06-13 13:09:06
+-- Dump completed on 2016-06-15  0:48:43

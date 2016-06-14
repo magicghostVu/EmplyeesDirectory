@@ -41,6 +41,7 @@
 		                    <ul class="dropdown-menu">
 		                        <li><a id="logout">Log out</a></li>
 		                        <li><a href="changePass">Change password</a></li>
+		                        <li><a href="addUser">Add User</a></li>
 		                    </ul>
                 		</li>
 					</s:if>
@@ -60,7 +61,7 @@
 					<tr>
 						<th>Name</th>
 						<td><input id='dname' class="form-control" type="text"
-							value="Department Name"></td>
+							value=""></td>
 					</tr>
 					<tr>
 						<th>Phone</th>
@@ -85,7 +86,7 @@
 			</div>
 		</div>
 
-		<button id='addBnt' class="btn btn-default">Add Department</button>
+		<button id='addBnt' class="btn btn-default" disabled>Add Department</button>
 
 
 

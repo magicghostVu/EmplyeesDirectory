@@ -2,6 +2,7 @@ package controller;
 
 import com.opensymphony.xwork2.ActionSupport;
 
+import entities.Departments;
 import entities.Employees;
 import models.DepartmentModel;
 import models.EmployeesModel;
@@ -33,7 +34,25 @@ public class UpdateEmp extends ActionSupport{
 			e.setJobTitle(jobTitle);
 			e.setName(name);
 			e.setPhone(phone);
-			e.setDepartments(DepartmentModel.getDepartmentById(idDepartment));
+			
+			
+			int dmpId=EmployeesModel.isMan(e);
+			//System.out.println(dmpId);
+			if(dmpId!=-1){// nếu nó là trưởng phòng nào đấy
+				if(dmpId!=idDepartment){// nếu cái phòng đang định cập nhật không phải phòng nó ở hiện tại
+					Departments d=DepartmentModel.getDepartmentById(dmpId);
+					System.out.println(d.getName());
+					d.setEmployees(null);
+					DepartmentModel.saveOrUpdateDepartment(d);
+					e.setDepartments(DepartmentModel.getDepartmentById(idDepartment));
+				}else{
+					e.setDepartments(DepartmentModel.getDepartmentById(idDepartment));
+					//System.out.println();
+				}
+				
+			}else{
+				e.setDepartments(DepartmentModel.getDepartmentById(idDepartment));
+			}
 			EmployeesModel.saveOrUpdateEmployees(e);
 			result=true;
 			return SUCCESS;

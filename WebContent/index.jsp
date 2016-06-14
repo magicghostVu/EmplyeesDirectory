@@ -40,6 +40,7 @@ body{
 		                    <ul class="dropdown-menu">
 		                        <li><a id="logout">Log out</a></li>
 		                        <li><a href="changePass">Change password</a></li>
+		                        <li><a href="addUser">Add User</a></li>
 		                    </ul>
                 		</li>
 					</s:if>

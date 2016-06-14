@@ -39,6 +39,7 @@
 		                    <ul class="dropdown-menu">
 		                        <li><a id="logout">Log out</a></li>
 		                        <li><a href="changePass">Change password</a></li>
+		                        <li><a href="addUser">Add User</a></li>
 		                    </ul>
                 		</li>
 					</s:if>
@@ -224,6 +225,13 @@
 			});
 			
 			$('#btnUpateDmp').click(function() {
+				
+				if($('#idMan').val()==''){
+					alert("Department must have a manager !");
+					$(this).attr('disabled', true);
+					return;
+				}
+				
 				var p1, p2, p3, p4;
 				var url=G_URL+'/updateDpm?';
 				p1='id='+idD;

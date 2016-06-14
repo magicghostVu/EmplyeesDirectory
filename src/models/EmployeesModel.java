@@ -79,5 +79,17 @@ public class EmployeesModel {
 			sf.getCurrentSession().close();
 		}
 	}
+	public static int isMan(Employees e){
+		List<Departments> all=DepartmentModel.getAllDepartment();
+		for(int i=0;i<all.size();++i){
+			if(all.get(i).getEmployees()==null){
+				continue;
+			}
+			if(e.getId()==all.get(i).getEmployees().getId()){
+				return all.get(i).getId();
+			}
+		}
+		return -1;
+	}
 	
 }

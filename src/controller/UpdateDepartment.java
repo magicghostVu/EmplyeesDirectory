@@ -28,6 +28,24 @@ public class UpdateDepartment extends ActionSupport {
 		d.setName(name);
 		d.setOfficeNumber(officeNumber);
 		Employees e=EmployeesModel.getEmployeeById(idMan);
+		
+		
+		
+		
+		int wasMan=EmployeesModel.isMan(e);
+		if(wasMan!=-1&&wasMan!=id){
+			Departments tmpd=DepartmentModel.getDepartmentById(wasMan);
+			tmpd.setEmployees(null);
+			DepartmentModel.saveOrUpdateDepartment(tmpd);
+		}else{
+			
+		}
+		e.setDepartments(d);
+		EmployeesModel.saveOrUpdateEmployees(e);
+		
+		
+		
+		
 		d.setEmployees(e);
 		DepartmentModel.saveOrUpdateDepartment(d);
 		result=true;

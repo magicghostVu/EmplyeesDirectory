@@ -8,22 +8,31 @@ import models.AdminModel;
 import ultil.SessionUlti;
 
 public class LoginAction extends ActionSupport{
-	//không được sử dụng lớp này vì có chứa lỗ hổng bảo mật
-	
-	
 	String userName, passWord;
-	boolean result;
+	int result;
 	public String execute(){
-		System.out.println("đã chạy qua đây");
+		
+		
+		
+		
+		//System.out.println("đã chạy qua đây");
 		List<Admin> all=AdminModel.getAllAdmin();
 		if(AdminModel.containAdmin(all, userName, passWord)){
+			
+			Admin a=AdminModel.getAdminById(userName);
+			if(a.getChangedPass()==false){
+				SessionUlti.getSession().put("adminF", userName);
+				result=2;
+				return SUCCESS;
+			}
+			
 			Map<String , Object> session=SessionUlti.getSession();
 			session.put("login", userName);
 			
 			
-			result=true;
+			result=0;///thành công
 		}else {
-			result=false;
+			result=1;// sai pass hoặc username
 		}
 		return SUCCESS;
 	}
@@ -33,9 +42,10 @@ public class LoginAction extends ActionSupport{
 	public void setPassWord(String passWord) {
 		this.passWord = passWord;
 	}
-	public boolean isResult() {
+	public int getResult() {
 		return result;
 	}
+	
 	
 	
 	

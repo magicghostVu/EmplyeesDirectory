@@ -18,6 +18,7 @@ public class AddDepartment extends ActionSupport {
 		}else{
 			return ERROR;
 		}
+		
 	}
 	public Admin getAdmin() {
 		return admin;

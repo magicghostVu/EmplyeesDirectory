@@ -21,22 +21,17 @@
         <div class="row">
             <div class="col-md-5 col-md-offset-3">
 
-                <h3>Change Password</h3> <br>
+                <h3>Change Password First</h3> <br>
                 
                 <form id='changePass'>
                 <table class="table table-bordered">
                 	<tr>
                 		<td>ID</td>
-                		<td><s:property value="id" /></td>
+                		<td><s:property value="adminF" /></td>
                 	</tr>
-                	
-                    <tr>
-                        <td>Old pass</td>
-                        <td><input type="password" class="form-control" name='oldPass'></td>
-                    </tr>
                     <tr>
                         <td>New password</td>
-                        <td><input id='newPass-1' type="password" class="form-control" name='newPass'></td>
+                        <td><input id='newPass-1' type="password" class="form-control" name='password'></td>
                     </tr>
                     
                     <tr>
@@ -48,7 +43,7 @@
                 
                 
                 <button id='btn-update' class="btn btn-default" disabled>Change Password</button>
-                <a href='home' class="btn btn-default">Go Home</a>
+                
             </div>
         </div>
 
@@ -67,7 +62,6 @@
     	$('#newPass-2').keyup(function() {
 			if($(this).val()!=$('#newPass-1').val()){
 				$(this).addClass('alert-danger');
-				$('#btn-update').prop('disabled', true);
 			}else {
 				$(this).removeClass('alert-danger');
 				$('#newPass-1').removeClass('alert-danger');
@@ -84,7 +78,7 @@
 			
 			
 			 $.ajax({
-				url: 'changePassJS',
+				url: 'changePassFirstJS',
 				data: fd,
 				type: 'POST',
 				processData : false,
@@ -96,7 +90,8 @@
 					alert('Change password successed, login again');
 					window.location.href='login';
 				}else{
-					alert('Old pass is incorrect, try again');
+					alert('Somethings went wrong, try login again');
+					window.location.href='login';
 				}
 				/* alert(data.result);
 				alert("Login Again");
