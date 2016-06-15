@@ -39,13 +39,18 @@
 		                    <ul class="dropdown-menu">
 		                        <li><a id="logout">Log out</a></li>
 		                        <li><a href="changePass">Change password</a></li>
-		                        <li><a href="addUser">Add User</a></li>
+		                        <li><a href="adMan">Ad Manager</a></li>
 		                    </ul>
                 		</li>
 					</s:if>
 					<li><a href="home">Department</a></li>
 					<li><a href="employees">Employees</a></li>
-					<li><a href="login">Log in</a></li>
+					
+					
+					<s:if test="!isLogin()">
+						<li><a href="login">Log in</a></li>
+					</s:if>
+					
 				</ul>
 			</div>
 
@@ -243,6 +248,7 @@
 				$.getJSON(url, function(data) {
 					if(data.result==true){
 						alert('Update successfully');
+						window.location.href='home';
 					}else{
 						alert('Update failed, try login again');
 					}
@@ -257,6 +263,7 @@
 					$.getJSON(url, function(data) {
 						if(data.result==true){
 							alert("Deleted");
+							location.href='home';
 						}else{
 							alert("Somethings went wrong !");
 						}

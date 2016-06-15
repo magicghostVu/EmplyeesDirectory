@@ -26,7 +26,6 @@ public class AddUserJS extends ActionSupport {
 			if (userName.equals(all.get(i).getUserName()) || email.equals(all.get(i).getEmail())) {
 				result = false;
 				message = "Email or username has existed, try different";
-
 				return SUCCESS;
 			}
 		}
@@ -35,13 +34,15 @@ public class AddUserJS extends ActionSupport {
 		Admin a = new Admin(userName, Integer.toString(passInt), email);
 		String content = "Your password is " + passInt;
 		try {
-			SendMail.sendMailTo(email, content);
+			//SendMail.sendMailTo(email, content);
 		} catch (Exception e) {
 			System.out.println(e);
 			message = "Send mail error";
 			result = true;
 			return SUCCESS;
 		}
+		a.setChangedPass(false);
+		a.setOwner(false);
 		AdminModel.SaveOrUpdateAdm(a);
 		message = "Add user successfully";
 		result = true;

@@ -23,6 +23,8 @@
 </head>
 <body>
 <div class="container">
+
+	<!-- nav bar start here -->
     <nav class="navbar navbar-default">
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle" data-toggle="collapse"
@@ -42,19 +44,22 @@
 		                    <ul class="dropdown-menu">
 		                        <li><a id="logout">Log out</a></li>
 		                        <li><a href="changePass">Change password</a></li>
-		                        <li><a href="addUser">Add User</a></li>
+		                        <li><a href="adMan">Ad Manager</a></li>
 		                    </ul>
                 		</li>
 					</s:if>
 					<li><a href="home">Department</a></li>
 					<li><a href="employees">Employees</a></li>
-					<li><a href="login">Log in</a></li>
+					
+					<s:if test="!isLogin()">
+						<li><a href="login">Log in</a></li>
+					</s:if>
 				</ul>
 			</div>
 
 
 		</nav>
-
+<!-- navbar end here -->
     <br>
 
 
@@ -185,6 +190,10 @@
 	<script src="js/jquery-2.2.0.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/global_url.js"></script>
+	
+	
+	<!-- JS start -->
+	
 	<s:if test="isLogin()">
 		<script>
 			var log='#logout';
@@ -343,6 +352,6 @@
 					
 						
 	</s:if>
-
+<!-- JS end -->
 </body>
 </html>

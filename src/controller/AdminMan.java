@@ -8,20 +8,25 @@ import entities.Admin;
 import models.AdminModel;
 import ultil.SessionUlti;
 
-public class AddDepartment extends ActionSupport {
+public class AdminMan extends ActionSupport {
+	
 	Admin admin;
 	boolean isLogin=false;
 	List<Admin> allAd;
-	public String execute() {
+	public String execute(){
 		if(SessionUlti.isLogedIn()){
 			String tmpId=(String)SessionUlti.getSession().get("login");
 			isLogin=true;
 			admin=AdminModel.getAdminById(tmpId);
-			return SUCCESS;
+			if(admin.getOwner()==true){
+				allAd=AdminModel.getAllAdmin();
+				return SUCCESS;
+			}
+			return ERROR;
 		}else{
 			return ERROR;
 		}
-		
+		//turn SUCCESS;
 	}
 	public Admin getAdmin() {
 		return admin;
@@ -29,5 +34,9 @@ public class AddDepartment extends ActionSupport {
 	public boolean isLogin() {
 		return isLogin;
 	}
+	public List<Admin> getAllAd() {
+		return allAd;
+	}
+	
 	
 }

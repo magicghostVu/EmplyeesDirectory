@@ -8,6 +8,7 @@ import models.*;
 import ultil.SessionUlti;
 public class Home extends ActionSupport{
 	Admin admin;
+	// kiểm tra đăng nhập
 	boolean isLogin=false;
 	List<Departments> allDepartment;
 	public String execute(){
@@ -23,8 +24,6 @@ public class Home extends ActionSupport{
 	public boolean isLogin() {
 		return isLogin;
 	}
-
-
 
 
 	public List<Departments> getAllDepartment() {

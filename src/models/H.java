@@ -5,8 +5,8 @@
  */
 package models;
 
-import org.hibernate.cfg.AnnotationConfiguration;
 import org.hibernate.SessionFactory;
+import org.hibernate.cfg.AnnotationConfiguration;
 
 /**
  * Hibernate Utility class with a convenient method to get Session Factory
@@ -14,6 +14,10 @@ import org.hibernate.SessionFactory;
  *
  * @author magic_000
  */
+
+
+
+// Khởi tạo và cấu hình hibernate
 public class H {
 
     private static final SessionFactory sessionFactory;

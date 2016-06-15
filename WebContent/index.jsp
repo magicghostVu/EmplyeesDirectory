@@ -13,6 +13,7 @@
 <link rel="stylesheet" href="css/bs3_sticky-footer.css">
 <link rel="stylesheet" href="css/font-face.css">
 <style>
+	/* custom font */
 body{
 	font-family: miui;
 }
@@ -21,6 +22,10 @@ body{
 </head>
 <body>
 	<div class="container">
+	
+	
+		<!-- navbar start -->
+	
 		<nav class="navbar navbar-default">
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle" data-toggle="collapse"
@@ -40,19 +45,22 @@ body{
 		                    <ul class="dropdown-menu">
 		                        <li><a id="logout">Log out</a></li>
 		                        <li><a href="changePass">Change password</a></li>
-		                        <li><a href="addUser">Add User</a></li>
+		                        <li><a href="adMan">Ad Manager</a></li>
 		                    </ul>
                 		</li>
 					</s:if>
 					<li class='active'><a href="home">Department</a></li>
 					<li><a href="employees">Employees</a></li>
-					<li><a href="login">Log in</a></li>
+					
+					<s:if test="!isLogin()">
+						<li><a href="login">Log in</a></li>
+					</s:if>
 				</ul>
 			</div>
 
 
 		</nav>
-
+	<!-- navbar end -->
 		<br>
 
 		<h3>Department</h3>

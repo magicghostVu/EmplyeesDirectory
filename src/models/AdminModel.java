@@ -70,6 +70,17 @@ public class AdminModel {
 			sf.getCurrentSession().close();
 		}
     }
+    public static void DeteleAdmin(Admin admin){
+    	SessionFactory sf=H.getSessionFactory();
+    	try {
+			sf.getCurrentSession().beginTransaction();
+			sf.getCurrentSession().delete(admin);
+			sf.getCurrentSession().getTransaction().commit();
+			sf.getCurrentSession().close();
+		} catch (Exception e) {
+			sf.getCurrentSession().close();
+		}
+    }
     
     
 }

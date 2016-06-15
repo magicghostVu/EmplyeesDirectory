@@ -8,7 +8,7 @@ import entities.Departments;
 import entities.Employees;
 
 public class EmployeesModel {
-	
+	// lấy tất cả nhân viên
 	public static List<Employees> getAllEmployeeses(){
 		List<Employees> allEmp = null;
         SessionFactory sf = H.getSessionFactory();
@@ -28,6 +28,8 @@ public class EmployeesModel {
         }
         return allEmp;
 	}
+	
+	// lấy nhân viên theo id
 	public static Employees getEmployeeById(Integer id){
 		SessionFactory sf=H.getSessionFactory();
 		Employees res=null;
@@ -42,7 +44,7 @@ public class EmployeesModel {
 		}
 		return res;
 	}
-	
+	// cập nhật hoặc thêm nhân viên
 	public static void saveOrUpdateEmployees(Employees e){
 		SessionFactory sf=H.getSessionFactory();
 		
@@ -55,7 +57,7 @@ public class EmployeesModel {
 			sf.getCurrentSession().close();
 		}
 	}
-	
+	// lấy nhân viên theo phòng
 	public static List<Employees> getEmployeesByDepartment(int idDepart){
 		List<Employees> all=getAllEmployeeses();
 		List<Employees> res=new ArrayList<>();
@@ -67,7 +69,7 @@ public class EmployeesModel {
 	
 		return res;
 	}
-	
+	// xóa nhân viên
 	public static void deleteEmp(Employees e){
 		SessionFactory sf=H.getSessionFactory();
 		try {
@@ -79,6 +81,8 @@ public class EmployeesModel {
 			sf.getCurrentSession().close();
 		}
 	}
+	
+	// trả về xem nhân viên có phải quản lý của phòng nào đấy không . 
 	public static int isMan(Employees e){
 		List<Departments> all=DepartmentModel.getAllDepartment();
 		for(int i=0;i<all.size();++i){

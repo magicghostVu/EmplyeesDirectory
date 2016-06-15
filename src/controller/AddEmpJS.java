@@ -13,6 +13,8 @@ public class AddEmpJS extends ActionSupport {
 	boolean result;
 
 	public String execute() {
+		
+		// nếu chưa đăng nhập thì return luôn
 		if (SessionUlti.isLogedIn()) {
 			Employees e = new Employees();
 			e.setDepartments(DepartmentModel.getDepartmentById(dmpId));

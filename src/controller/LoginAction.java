@@ -11,10 +11,6 @@ public class LoginAction extends ActionSupport{
 	String userName, passWord;
 	int result;
 	public String execute(){
-		
-		
-		
-		
 		//System.out.println("đã chạy qua đây");
 		List<Admin> all=AdminModel.getAllAdmin();
 		if(AdminModel.containAdmin(all, userName, passWord)){

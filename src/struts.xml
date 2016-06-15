@@ -104,5 +104,20 @@
        <action name="changePassFirstJS" class='controller.ChangePassFirstJS'>
            <result name="success" type="json"></result>
        </action>
+       
+       
+       <action name='adMan' class='controller.AdminMan'>
+           <result name="success">AdminMan.jsp</result>
+           <result name="error">404.jsp</result>
+       </action>
+       <action name="deleteAdminJS" class='controller.DeleteAdminJS'>
+           <result name="success" type="json"></result>
+       </action>
+       
+       <action name="changeOwn" class='controller.ChangeOwnAdJS'>
+           <result name="success" type="json"></result>
+       </action>
+       
+       
     </package>
 </struts>

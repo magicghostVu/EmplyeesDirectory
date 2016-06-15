@@ -17,8 +17,13 @@
 		body{
 			font-family: miui;
 		}
-	
+		h2{
+			color: blue;
+		
+		
+		}
 	</style>
+	
 
 </head>
 <body>
@@ -29,7 +34,7 @@
 
     <div class="row">
         <div class="col-md-4 col-md-offset-4">
-            <h2 class="text-center">Login page</h2>
+            <h2 class="text-center" >Login Page</h2>
             <!-- <form action=""> -->
                 <div class="form-group">
                     <label class="control-label" for="">User name</label>

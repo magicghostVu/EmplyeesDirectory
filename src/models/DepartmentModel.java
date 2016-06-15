@@ -5,7 +5,7 @@ import java.util.List;
 import entities.*;
 public class DepartmentModel {
 	//static SessionFactory sf=H.getSessionFactory();
-	
+	// Lấy tất cả các phòng
 	public static List<Departments> getAllDepartment(){
 		List<Departments> res=null;
 		SessionFactory sf=H.getSessionFactory();
@@ -18,9 +18,6 @@ public class DepartmentModel {
 			sf.getCurrentSession().close();
 			// TODO: handle exception
 		}
-		
-		
-		
 		for (int i = 0; i < res.size(); i++) {
 			Integer tmpId;
 			/*tmpId=res.get(i).getEmployees().getId();*/
@@ -34,6 +31,7 @@ public class DepartmentModel {
 		}
 		return res;
 	}
+	//lấy phòng theo id
 	public static Departments getDepartmentById(int Id){
 		SessionFactory sf=H.getSessionFactory();
 		Departments res=null;
@@ -49,6 +47,7 @@ public class DepartmentModel {
 		}
 		return res;
 	}
+	// lấy phiên bản thu gọn của dmp
 	public static Departments getDepartmentByIdMin(int id){
 		SessionFactory sf=H.getSessionFactory();
 		Departments res=null;
@@ -64,6 +63,7 @@ public class DepartmentModel {
 		}
 		return res;
 	}
+	//cập nhật hoặc thêm dpm
 	public static void saveOrUpdateDepartment(Departments d){
 		SessionFactory sf=H.getSessionFactory();
 		try {
@@ -78,7 +78,7 @@ public class DepartmentModel {
 			sf.getCurrentSession().close();
 		}
 	}
-	
+	// xóa dpm
 	public static void deleteDpm(int idDpm){
 		Departments d=DepartmentModel.getDepartmentById(idDpm);
 		if(d==null) return;

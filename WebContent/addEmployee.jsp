@@ -41,13 +41,13 @@
 		                    <ul class="dropdown-menu">
 		                        <li><a id="logout">Log out</a></li>
 		                        <li><a href="changePass">Change password</a></li>
-		                        <li><a href="addUser">Add User</a></li>
+		                        <li><a href="adMan">Ad Manager</a></li>
 		                    </ul>
                 		</li>
 					</s:if>
 					<li><a href="home">Department</a></li>
 					<li><a href="employees">Employees</a></li>
-					<li><a href="login">Log in</a></li>
+					<!-- <li><a href="login">Log in</a></li> -->
 				</ul>
 			</div>
 
@@ -189,6 +189,13 @@
 				$.getJSON(url, function(data){
 					if(data.result==true){
 						alert("Add emp successfully");
+						var t=confirm("You want to add more emp?");
+						if(t==true){
+							location.reload();
+						}else{
+							window.location.href='employees';
+						}
+						
 					}else{
 						alert("Add emp failed, try login again");
 					}

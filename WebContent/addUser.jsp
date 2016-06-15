@@ -21,7 +21,7 @@
         <div class="row">
             <div class="col-md-5 col-md-offset-3">
 
-                <h3>Add User</h3> <br>
+                <h3>Add new Admin</h3> <br>
                 
                 <form id='changePassForm'>
                 <table class="table table-bordered">
@@ -34,10 +34,9 @@
                         <td>Email</td>
                         <td><input type="email" class="form-control" name='email' id='a-email' ></td>
                     </tr>
+                    
                 </table>
                 </form>
-                
-                
                 <button id='btn-update' class="btn btn-default" disabled>Add User</button>
                 <a href='home' class="btn btn-default">Go Home</a>
                 <br><br>
@@ -95,6 +94,14 @@
 			}).done(function(data) {
 				console.log(data.message);
 				$('#message').html(data.message);
+				
+				var continue_=confirm("Do you want to add more admin ?")
+				if(continue_==true){
+					location.reload();
+				}else{
+					location.href='home';
+				}
+				
 			});
 			
 		});
