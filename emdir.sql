@@ -37,7 +37,7 @@ CREATE TABLE `admin` (
 
 LOCK TABLES `admin` WRITE;
 /*!40000 ALTER TABLE `admin` DISABLE KEYS */;
-INSERT INTO `admin` VALUES ('magicghost.vu','1111','magicghost.vu@gmail.com',''),('mrmagic','1234','magic200395',''),('mrmagic_vu','1111','magicghost_vu@yahoo.com.vn',''),('qq','231432','aa',''),('quynhtrang','1111','phamthiquynhtrang95@gmail.com','');
+INSERT INTO `admin` VALUES ('magicghost.vu','1111','magicghost.vu@gmail.com',''),('mrmagic','1234','magic200395',''),('mrmagic_vu','1111','magicghost_vu@yahoo.com.vn',''),('phuvh','7768','king_kid@hotmail.com','\0'),('phuvh_','1235','king_kid9x@hotmail.com','\0'),('qq','231432','aa',''),('quynhtrang','1111','phamthiquynhtrang95@gmail.com',''),('thanhnk','1111','kingkid162@gmail.com','');
 /*!40000 ALTER TABLE `admin` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -87,7 +87,7 @@ CREATE TABLE `employees` (
   PRIMARY KEY (`ID`),
   KEY `depart_idx` (`DEPARTMENT`),
   CONSTRAINT `fk_dpm` FOREIGN KEY (`DEPARTMENT`) REFERENCES `departments` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=36 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -109,4 +109,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-06-15  0:48:43
+-- Dump completed on 2016-06-15 10:43:01

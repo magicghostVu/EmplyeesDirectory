@@ -37,6 +37,7 @@ public class AddUserJS extends ActionSupport {
 		try {
 			SendMail.sendMailTo(email, content);
 		} catch (Exception e) {
+			System.out.println(e);
 			message = "Send mail error";
 			result = true;
 			return SUCCESS;

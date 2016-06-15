@@ -62,6 +62,7 @@
     	$('#newPass-2').keyup(function() {
 			if($(this).val()!=$('#newPass-1').val()){
 				$(this).addClass('alert-danger');
+				$('#btn-update').prop('disabled', true);
 			}else {
 				$(this).removeClass('alert-danger');
 				$('#newPass-1').removeClass('alert-danger');

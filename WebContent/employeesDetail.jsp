@@ -237,10 +237,26 @@
 				$('#btnUpdate').attr('disabled', false);
 			});
 			$('#phone').change(function() {
+				
 				$('#btnUpdate').attr('disabled', false);
 			});
-			$('#email').change(function() {
-				$('#btnUpdate').attr('disabled', false);
+			$('#email').keyup(function() {
+				if($(this).val()==''){
+					$('#btnUpdate').attr('disabled', false);
+					$(this).removeClass('alert-danger');
+					return;
+				}
+				var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+				var ok= re.test($(this).val());
+				if(ok==true){
+					$('#btnUpdate').attr('disabled', false);
+					$(this).removeClass('alert-danger');
+				}else{
+					$(this).addClass('alert-danger');
+					$('#btnUpdate').attr('disabled', true);
+				}
+				
+				
 			});
 			
 			

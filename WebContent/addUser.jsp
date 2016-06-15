@@ -63,18 +63,29 @@
     	$('#a-email').keyup(function() {
 			if($(this).val()==''){
 				$('#btn-update').attr('disabled', true);
+				$(this).addClass('alert-danger');
 				return;
 			}
-			if($('#a-username').val()==''){
+			var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+			var ok= re.test($(this).val());
+			if(ok==true){
+				if($('#a-username').val()==''){
+					$('#btn-update').attr('disabled', true);
+				}else{
+					$('#btn-update').attr('disabled', false);
+					$(this).removeClass('alert-danger');
+				}
+			}else{
 				$('#btn-update').attr('disabled', true);
-				return;
+				$(this).addClass('alert-danger');
 			}
-			
-			$('#btn-update').attr('disabled', false);
 			
 		});
     	$("#btn-update").click(function() {
 			var fd=new FormData(document.getElementById('changePassForm'));
+			
+			
+			$('#message').html('Adding user...');
 			$.ajax({
 				data: fd,
 				url: 'addUserJS',
