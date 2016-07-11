@@ -34,7 +34,7 @@ public class AddUserJS extends ActionSupport {
 		Admin a = new Admin(userName, Integer.toString(passInt), email);
 		String content = "Your password is " + passInt;
 		try {
-			//SendMail.sendMailTo(email, content);
+			SendMail.sendMailTo(email, content);
 		} catch (Exception e) {
 			System.out.println(e);
 			message = "Send mail error";

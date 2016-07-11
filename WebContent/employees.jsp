@@ -223,42 +223,6 @@
 				}
 				
 				
-				/* checkBox = $('.checkDelete');
-				var listToDelete=[];
-				for (var i = 0; i < checkBox.size(); ++i) {
-					var tmp = $(checkBox[i]);
-					if (tmp.is(':checked')) {
-						listToDelete.push(tmp.attr('idemp'));
-						//console.log(tmp.attr('idemp'));
-						
-					}
-				}
-				var strQuery=listToDelete.join();
-				console.log(strQuery);
-				var formdata=new FormData();
-				formdata.append('lst', strQuery);
-				$.ajax({
-					url:'deleteSomeEmp',
-					type: 'POST',
-					data: formdata,
-					processData : false,
-					contentType: false
-				}).done(function(data) {
-					
-					for (var i = 0; i < checkBox.size(); ++i) {
-						var tmp = $(checkBox[i]);
-						if (tmp.is(':checked')) {
-							tmp.parent().parent().remove();
-						}
-					}
-					console.log(data);
-					checkBox=$('.checkDelete');
-					
-					console.log(checkBox.size());
-					$('#deleteEmp').prop("disabled", true);
-				}); */
-				
-				
 			});
 		</script>
 
@@ -336,24 +300,7 @@
 				
 				for(var i=0;i<trArr.length;++i){
 					$('#table-body').append(trArr[i]);
-					/* checkBox = $('.checkDelete');
-					checkBox.change(function() {
-						checkBox = $('.checkDelete');
-						var n = 0;
-						for (var i = 0; i < checkBox.size(); ++i) {
-							var tmp = $(checkBox[i]);
-							if (tmp.is(':checked')) {
-								n++;
-							}
-						}
-						console.log(n);
-						if (n > 0) {
-							$('#deleteEmp').prop("disabled", false);
-							console.log('okok');
-						} else {
-							$('#deleteEmp').prop("disabled", true);
-						}
-					}); */
+					
 				}
 				checkBox = $('.checkDelete');
 				checkBox.change(function() {
